@@ -1,0 +1,137 @@
+﻿@model IEnumerable<WebApplication2.FarmersTraining>
+    @using PagedList.Mvc;
+    @using PagedList;
+
+    
+
+@{
+    ViewBag.Title = "List of Training";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Online Farming training</h2>
+
+@*<p>
+    @Html.ActionLink("Add", "Create")
+</p>*@
+
+<div class="jumbotron">
+    <div id="my-carousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#my-carousel" data-slide-to="0" class="active"></li>
+            <li data-target="#my-carousel" data-slide-to="1"></li>
+            <li data-target="#my-carousel" data-slide-to="2"></li>
+            <li data-target="#my-carousel" data-slide-to="3"></li>
+            <li data-target="#my-carousel" data-slide-to="4"></li>
+            <li data-target="#my-carousel" data-slide-to="5"></li>
+            <li data-target="#my-carousel" data-slide-to="6"></li>
+            <li data-target="#my-carousel" data-slide-to="7"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="item active">
+                <img style="width:900px;height:500px" src="~/Images/Trainer.jpeg" />
+                <div class="carousel-caption">
+
+                </div>
+            </div>
+            <div class="item">
+                <img style="width:900px;height:500px" src="~/images/cow.jpg" />
+                <div class="carousel-caption">
+
+                </div>
+            </div>
+            <div class="item">
+                <img style="width:900px;height:500px" src="~/images/piglets.jpg" />
+                <div class="carousel-caption">
+
+                </div>
+            </div>
+            <div class="item">
+                <img style="width:900px;height:500px" src="~/images/Poultry.jpeg" />
+                <div class="carousel-caption"></div>
+            </div>
+            <div class="item">
+                <img style="width:900px;height:500px" src="~/images/Hey.jpg" />
+                <div class="carousel-caption"></div>
+            </div>
+            <div class="item">
+                <img style="width:900px;height:500px" src="~/images/Planting.jpg" />
+                <div class="carousel-caption"></div>
+            </div>
+            <div class="item">
+                <img style="width:900px;height:500px" src="~/images/Sheep.jpeg" />
+                <div class="carousel-caption"></div>
+            </div>
+            <div class="item">
+                <img style="width:900px;height:500px" src="~/images/tomatoes.jpg" />
+                <div class="carousel-caption"></div>
+            </div>
+
+
+        </div>
+        <a class="left carousel-control" href="#my-carousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="right carousel-control" href="#my-carousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+    </div>
+    <h1>Online Farming Training</h1>
+
+
+
+    <p class="lead">Online Farming Training is a forum where farmers learn how precision Agricuture and modern Agriculture practices impact farming operations and the world Agribusiness economy at large.</p>
+
+</div>
+
+         
+            
+
+<div>
+
+    <p>
+            @Html.ActionLink("Search", "Index1","FarmersTrainings")
+        </p>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TrainerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EventName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TrainingTime)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TrainerName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EventName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TrainingTime)
+                </td>
+                <td>
+                    @Html.ActionLink(" View Details", "Details", new { id = item.TrainingId })
+
+
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

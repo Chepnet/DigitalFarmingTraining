@@ -1,0 +1,52 @@
+﻿@model IEnumerable<WebApplication2.Models.TrainingApplication>
+
+@{
+    ViewBag.Title = "Apply";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>List of Training attendance</h2>
+
+<p>
+    @Html.ActionLink("Events", "Index","FarmersTrainings")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EventName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.EventName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ApplicationId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ApplicationId }) |
+            @*@Html.ActionLink("Remove", "Delete", new { id=item.ApplicationId })*@
+        </td>
+    </tr>
+}
+
+</table>
